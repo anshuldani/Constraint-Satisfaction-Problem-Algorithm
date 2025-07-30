@@ -12,13 +12,17 @@ Edges between nodes represent direct borders between states (undirected graph).
 Travel is only allowed westward from lower zone numbers to higher zone numbers.
 
 Objective
-Plan a valid road trip path starting in any state (from any zone) and ending in a state within zone Z12 (CA, NV, OR, or WA), visiting exactly one state per zone between the start zone and zone Z12. The trip must:
+
+Plan a valid road trip path starting in any state (from any zone) and ending in a state within zone Z12 (CA, NV, OR, or WA), visiting exactly one state per zone between the start zone and zone Z12. 
+
+The trip must:
 
 Form a connected path through valid neighboring states.
 
 Accumulate at least NO_OF_PARKS total national parks across all visited states.
 
 Key Constraints
+
 You must assign one state per zone from your start zone through Z12.
 
 You may start in any zone/state, but the zone determines the number of zones to traverse.
@@ -32,6 +36,7 @@ PARKS_VISITED keeps a cumulative total of national parks visited.
 The total parks visited must satisfy: PARKS_VISITED >= NO_OF_PARKS.
 
 Assumptions
+
 Each zone variable Z1–Z12 has a list of states as domain values.
 
 A valid assignment must include all zones between (and including) start and end zones.
@@ -41,6 +46,7 @@ The search uses backtracking with CSP.
 State-to-state adjacency is determined using driving distances between capitals.
 
 Example
+
 If you start in TN (Zone Z6), then your zone variables are:
 
 Z6 -> Z7 -> Z8 -> Z9 -> Z10 -> Z11 -> Z12
@@ -50,6 +56,7 @@ Your solution will assign one valid, neighboring state to each of these zones
 You must end in CA, NV, OR, or WA (zone Z12)
 
 Implementation Notes
+
 The backtracking algorithm checks for path validity and national park constraints.
 
 State neighbors and park counts are pre-defined based on the map.
